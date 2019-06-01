@@ -10,6 +10,7 @@
             <router-link to="/about">About</router-link>
             <router-link to="/table">Table</router-link>
             <router-link to="/form">Form</router-link>
+            <router-link to="/translator">translator</router-link>
           </el-menu-item>
         </el-menu>
       </el-aside>
