@@ -21,12 +21,20 @@
     <div v-if="detail">
       詳細が表示されました。
     </div>
+
+    <button v-on:click="raiseError">エラー</button>
+    <div v-bind:class="{'text-danger': hasError}">
+      システムメッセージ
+    </div>
   </div>
 </template>
 
 <style scoped>
 .home {
   text-align: left;
+}
+.text-danger {
+  color: red;
 }
 </style>
 
@@ -52,7 +60,8 @@ export default Vue.extend({
           name: "一番搾り"
         }
       ] as Item[],
-      detail: false
+      detail: false,
+      hasError: false
     };
   },
   methods: {
@@ -62,6 +71,9 @@ export default Vue.extend({
     // 条件付きレンダリングの制御用イベントハンドラ
     showDetail(): void {
       this.detail = true;
+    },
+    raiseError(): void {
+      this.hasError = true;
     }
   },
   // 算出プロパティを実装
