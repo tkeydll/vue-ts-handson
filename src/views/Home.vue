@@ -12,6 +12,9 @@
 
     <h3>イベントハンドリング</h3>
     <button v-on:click="onClick">実行</button>
+
+    <h3>算出プロパティ</h3>
+    <p>{{ computedMsg }}</p>
   </div>
 </template>
 
@@ -49,6 +52,13 @@ export default Vue.extend({
     onClick(): void {
       alert(this.msg);
     }
+  },
+  // 算出プロパティを実装
+  computed: {
+    computedMsg(): string {
+      return this.msg.replace(/!/g, "") + " + TypeScript!";
+    }
   }
 });
+
 </script>
