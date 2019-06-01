@@ -15,6 +15,12 @@
 
     <h3>算出プロパティ</h3>
     <p>{{ computedMsg }}</p>
+
+    <h3>条件つきレンダリング</h3>
+    <button v-on:click="showDetail">表示</button>
+    <div v-if="detail">
+      詳細が表示されました。
+    </div>
   </div>
 </template>
 
@@ -45,12 +51,17 @@ export default Vue.extend({
           id: 2,
           name: "一番搾り"
         }
-      ] as Item[]
+      ] as Item[],
+      detail: false
     };
   },
   methods: {
     onClick(): void {
       alert(this.msg);
+    },
+    // 条件付きレンダリングの制御用イベントハンドラ
+    showDetail(): void {
+      this.detail = true;
     }
   },
   // 算出プロパティを実装
